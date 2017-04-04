@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Learn Namma Kannada</string>
+    <!-- Category name for phrases [CHAR LIMIT=20] -->
+    <string name="category_phrases">Phrases</string>
+
+    <!-- Category name for the vocabulary words for colors [CHAR LIMIT=20] -->
+    <string name="category_colors">Colors</string>
+
+    <!-- Category name for the vocabulary words for numbers [CHAR LIMIT=20] -->
+    <string name="category_numbers">Numbers</string>
+
+    <!-- Category name for the vocabulary words for family members [CHAR LIMIT=20] -->
+    <string name="category_names">Names</string>
+
+    <string name="numbers_List">Numbers</string>
+
+    <string name="person_names">Names</string>
+
+    <string name="colors_List">Colors</string>
+
+    <string name="phrases_List">Phrases</string>
+
+</resources>
