@@ -1,7 +1,7 @@
 package com.usassociates.android.learnnammakannada;
 
 /**
- * Created by Sapna Umesh on 27-03-2017.
+ * Created by Sapna G on 27-03-2017.
  */
 
 public class Word {

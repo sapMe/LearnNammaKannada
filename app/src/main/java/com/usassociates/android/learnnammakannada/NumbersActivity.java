@@ -14,9 +14,9 @@ import java.util.List;
 
 public class NumbersActivity extends AppCompatActivity {
 
-    public MediaPlayer mMediaPlayer;
+    private  MediaPlayer mMediaPlayer;
 
-    public AudioManager mAudioManager;
+    private AudioManager mAudioManager;
 
     /**
      * This listener gets triggered whenever the audio focus changes
@@ -117,7 +117,7 @@ public class NumbersActivity extends AppCompatActivity {
 
                 // Create and setup the {@link MediaPlayer} for the audio resource associated
                 // with the current word
-// Request audio focus so in order to play the audio file. The app needs to play a
+            // Request audio focus so in order to play the audio file. The app needs to play a
                 // short audio file, so we will request audio focus with a short amount of time
                 // with AUDIOFOCUS_GAIN_TRANSIENT.
                 int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
