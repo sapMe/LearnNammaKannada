@@ -16,19 +16,18 @@ public class PhrasesActivity extends AppCompatActivity {
 
         //Create an ArrayList of Word object
         List<Word> words = new ArrayList<Word>();
-        words.add(new Word("Where are you going?", "Ellige hoguttiddira?"));
-        words.add(new Word("What is your name?", "Nimma hesarenu?"));
-        words.add(new Word("My name is...", "Nanna hesaru..."));
-        words.add(new Word("How are you?", "Hegiddira?"));
-        words.add(new Word("I’m feeling good.", "Naanu Chennagiddini"));
-        words.add(new Word("Are you coming?", "Neevu baruttira?"));
-        words.add(new Word("Yes, I’m coming.", "Howdu baruttini"));
-        words.add(new Word("I’m coming.", "Baruttini."));
-        words.add(new Word("Let’s go.", "Hogona"));
-        words.add(new Word("Come here.", "Illi banni"));
-        words.add(new Word("Come.", "Banni"));
-        words.add(new Word("Go.", "Hogi"));
-        words.add(new Word("Who are you?.", "Neevu yaaru?"));
+        words.add(new Word("Where are you going?", "Ellige hoguttiddira?",R.raw.whr_r_u_goin));
+        words.add(new Word("What is your name?", "Nimma hesarenu?",R.raw.ur_name));
+        words.add(new Word("My name is...", "Nanna hesaru...",R.raw.my_name));
+        words.add(new Word("How are you?", "Hegiddira?",R.raw.hw_r_u));
+        words.add(new Word("Are you coming?", "Neevu baruttira?",R.raw.r_u_coming));
+        words.add(new Word("Yes, I’m coming.", "Howdu baruttini",R.raw.s_coming));
+        words.add(new Word("I’m coming.", "Baruttini.",R.raw.coming));
+        words.add(new Word("Let’s go.", "Hogona",R.raw.lets_go));
+        words.add(new Word("Come here.", "Illi banni",R.raw.come_here));
+        words.add(new Word("Come.", "Banni",R.raw.come));
+        words.add(new Word("Go.", "Hogi",R.raw.go));
+        words.add(new Word("Who are you?.", "Neevu yaaru?",R.raw.who_r_u));
 
 
 
