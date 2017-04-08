@@ -9,16 +9,20 @@ public class Word {
     private String mkannadaTranslation;
     private String mdefaultTransalation;
     private int mImageResourceId;
+    //Audio resource id to be loaded
+    private int mAudioResorceId;
 
-    public Word(String defaultTransalation, String kannadaTransalation){
+    public Word(String defaultTransalation, String kannadaTransalation,int audioResorceId){
         this.mkannadaTranslation = kannadaTransalation;
         this.mdefaultTransalation = defaultTransalation;
+        this.mAudioResorceId = audioResorceId;
     }
 
-    public Word(String defaultTransalation, String kannadaTransalation, int imageResourceId){
+    public Word(String defaultTransalation, String kannadaTransalation, int imageResourceId, int audioResorceId){
         this.mkannadaTranslation = kannadaTransalation;
         this.mdefaultTransalation = defaultTransalation;
         this.mImageResourceId = imageResourceId;
+        this.mAudioResorceId = audioResorceId;
     }
 
     public String  getKannadaTransalation(){
@@ -31,6 +35,10 @@ public class Word {
 
     public int getImageResourceId(){
         return mImageResourceId;
+    }
+
+    public int getAudioResorceId(){
+        return mAudioResorceId;
     }
 
 }
