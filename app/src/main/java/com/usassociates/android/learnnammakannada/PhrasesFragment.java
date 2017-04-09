@@ -4,21 +4,32 @@ import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PhrasesActivity extends AppCompatActivity {
 
-    /** Handles playback of all the sound files */
+/**
+ * A simple {@link Fragment} subclass.
+ * Activities that contain this fragment must implement the
+ * create an instance of this fragment.
+ */
+public class PhrasesFragment extends Fragment {
     private MediaPlayer mMediaPlayer;
 
     /** Handles audio focus when playing a sound file */
     private AudioManager mAudioManager;
+
+
+    public PhrasesFragment() {
+        // Required empty public constructor
+    }
 
     /**
      * This listener gets triggered whenever the audio focus changes
@@ -51,8 +62,6 @@ public class PhrasesActivity extends AppCompatActivity {
 
         }
     };
-
-
     /**
      * This listener gets triggered when the {@link MediaPlayer} has completed
      * playing the audio file.
@@ -68,21 +77,23 @@ public class PhrasesActivity extends AppCompatActivity {
     };
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.word_list);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View rootView  =  inflater.inflate(R.layout.word_list, container, false);
+
 
         // Create and setup the {@link AudioManager} to request audio focus
-        mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
 
-        //Create an ArrayList of Word object
-       final List<Word> words = new ArrayList<Word>();
+        //Create an ArrayList of words
+        final List<Word> words = new ArrayList<Word>();
         words.add(new Word("Where are you going?", "Ellige hoguttiddira?",R.raw.whr_r_u_goin));
         words.add(new Word("What is your name?", "Nimma hesarenu?",R.raw.ur_name));
         words.add(new Word("My name is...", "Nanna hesaru...",R.raw.my_name));
         words.add(new Word("How are you?", "Hegiddira?",R.raw.hw_r_u));
         words.add(new Word("Are you coming?", "Neevu baruttira?",R.raw.r_u_coming));
-        words.add(new Word("Yes, I’m coming.", "Howdu baruttini",R.raw.s_coming));
+        words.add(new Word("Yes, I’m coming.", "Howdu baruttene",R.raw.s_coming));
         words.add(new Word("I’m coming.", "Baruttini.",R.raw.coming));
         words.add(new Word("Let’s go.", "Hogona",R.raw.lets_go));
         words.add(new Word("Come here.", "Illi banni",R.raw.come_here));
@@ -91,15 +102,14 @@ public class PhrasesActivity extends AppCompatActivity {
         words.add(new Word("Who are you?.", "Neevu yaaru?",R.raw.who_r_u));
 
 
-
         // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
         // adapter knows how to create list items for each item in the list.
-        WordAdapter adapter = new WordAdapter(this,words,R.color.category_phrases);
+        WordAdapter adapter = new WordAdapter(getActivity(),words,R.color.category_phrases);
 
         // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
         // There should be a {@link ListView} with the view ID called list, which is declared in the
         // word_list.xml file.
-        ListView listView = (ListView) findViewById(R.id.list);
+        ListView listView = (ListView) rootView.findViewById(R.id.list);
 
         // Make the {@link ListView} use the {@link ArrayAdapter} we created above, so that the
         // {@link ListView} will display list items for each word in the list of words.
@@ -128,7 +138,7 @@ public class PhrasesActivity extends AppCompatActivity {
                 // Create and setup the {@link MediaPlayer} for the audio resource associated
                 // with the current word
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-                    mMediaPlayer = mMediaPlayer.create(PhrasesActivity.this, word.getAudioResorceId());
+                    mMediaPlayer = mMediaPlayer.create(getActivity(), word.getAudioResorceId());
 
                     // Start the audio file
                     mMediaPlayer.start();
@@ -140,11 +150,12 @@ public class PhrasesActivity extends AppCompatActivity {
                 }
             }
         });
-
+        return rootView;
     }
 
+
     @Override
-    protected void onStop() {
+    public void onStop() {
         super.onStop();
         releaseMediaPlayer();
     }
