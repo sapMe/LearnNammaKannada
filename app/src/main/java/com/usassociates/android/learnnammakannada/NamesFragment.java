@@ -3,19 +3,34 @@ package com.usassociates.android.learnnammakannada;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class ColorsActivity extends AppCompatActivity {
+
+/**
+ * A simple {@link Fragment} subclass.
+ * Activities that contain this fragment must implement the
+ * create an instance of this fragment.
+ */
+public class NamesFragment extends Fragment {
     private MediaPlayer mMediaPlayer;
 
+
+    /** Handles audio focus when playing a sound file */
     private AudioManager mAudioManager;
 
+
+    public NamesFragment(){
+        // Required empty public constructor
+    }
     /**
      * This listener gets triggered whenever the audio focus changes
      * (i.e., we gain or lose audio focus because of another app or device).
@@ -47,8 +62,6 @@ public class ColorsActivity extends AppCompatActivity {
 
         }
     };
-
-
     /**
      * This listener gets triggered when the {@link MediaPlayer} has completed
      * playing the audio file.
@@ -64,39 +77,41 @@ public class ColorsActivity extends AppCompatActivity {
     };
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.word_list);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
+        View rootView = inflater.inflate(R.layout.word_list,container, false);
         // Create and setup the {@link AudioManager} to request audio focus
-        mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-        //Create an ArrayList of Word object
-       final List<Word> words = new ArrayList<Word>();
-        words.add(new Word("Red", "Kempu",R.drawable.color_red, R.raw.red));
-        words.add(new Word("Blue", "Neeli",R.drawable.color_blue, R.raw.blue));
-        words.add(new Word("Green", "Hasiru",R.drawable.color_green, R.raw.green));
-        words.add(new Word("Yellow", "Haladi",R.drawable.color_mustard_yellow,R.raw.yellow));
-        words.add(new Word("Black", "Kappu",R.drawable.color_black,R.raw.black));
-        words.add(new Word("White", "Bili",R.drawable.color_white,R.raw.white));
-        words.add(new Word("Brown", "Kandu",R.drawable.color_brown,R.raw.brown));
-        words.add(new Word("Gray", "Boodu",R.drawable.color_gray,R.raw.gray));
+        mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
 
-
+        //Create an ArrayList of words
+        final  List<Word> words = new ArrayList<Word>();
+        words.add(new Word("Father", "Appa",R.drawable.family_father, R.raw.family_father));
+        words.add(new Word("Mother", "Amma",R.drawable.family_mother,R.raw.family_mother));
+        words.add(new Word("Older Brother", "Anna",R.drawable.family_older_brother, R.raw.family_olderbrother));
+        words.add(new Word("Younger Brother", "Tamma",R.drawable.family_younger_brother,R.raw.youngerbrother));
+        words.add(new Word("Older Sister", "Akka",R.drawable.family_older_sister,R.raw.family_oldersister));
+        words.add(new Word("Younger Sister", "Tangi",R.drawable.family_younger_sister, R.raw.youngersister));
+        words.add(new Word("Grandmother", "Ajji",R.drawable.family_grandmother, R.raw.grandmother));
+        words.add(new Word("GrandFather", "Taata",R.drawable.family_grandfather, R.raw.grandfather));
+        words.add(new Word("Daughter", "Magalu",R.drawable.family_daughter, R.raw.daughter));
+        words.add(new Word("Son", "Maga",R.drawable.family_son, R.raw.son));
 
         // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
         // adapter knows how to create list items for each item in the list.
-        WordAdapter adapter = new WordAdapter(this,words,R.color.category_colors);
+        WordAdapter adapter = new WordAdapter(getActivity(),words,R.color.category_names);
 
         // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
         // There should be a {@link ListView} with the view ID called list, which is declared in the
         // word_list.xml file.
-        ListView listView = (ListView) findViewById(R.id.list);
+        ListView listView = (ListView) rootView.findViewById(R.id.list);
 
         // Make the {@link ListView} use the {@link ArrayAdapter} we created above, so that the
         // {@link ListView} will display list items for each word in the list of words.
         // Do this by calling the setAdapter method on the {@link ListView} object and pass in
         // 1 argument, which is the {@link ArrayAdapter} with the variable name itemsAdapter.
         listView.setAdapter(adapter);
+
         // Set a click listener to play the audio when the list item is clicked on
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -111,7 +126,7 @@ public class ColorsActivity extends AppCompatActivity {
 
                 // Create and setup the {@link MediaPlayer} for the audio resource associated
                 // with the current word
-                // Request audio focus so in order to play the audio file. The app needs to play a
+// Request audio focus so in order to play the audio file. The app needs to play a
                 // short audio file, so we will request audio focus with a short amount of time
                 // with AUDIOFOCUS_GAIN_TRANSIENT.
                 int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
@@ -120,7 +135,7 @@ public class ColorsActivity extends AppCompatActivity {
                 // Create and setup the {@link MediaPlayer} for the audio resource associated
                 // with the current word
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-                    mMediaPlayer = mMediaPlayer.create(ColorsActivity.this, word.getAudioResorceId());
+                    mMediaPlayer = mMediaPlayer.create(getActivity(), word.getAudioResorceId());
 
                     // Start the audio file
                     mMediaPlayer.start();
@@ -128,17 +143,21 @@ public class ColorsActivity extends AppCompatActivity {
                     // Setup a listener on the media player, so that we can stop and release the
                     // media player once the sound has finished playing.
                     mMediaPlayer.setOnCompletionListener(mCompletionListener);
+
                 }
             }
         });
-
+        // Inflate the layout for this fragment
+        return rootView;
     }
 
+
     @Override
-    protected void onStop() {
+    public void onStop() {
         super.onStop();
         releaseMediaPlayer();
     }
+
 
     /**
      * Clean up the media player by releasing its resources.
@@ -161,6 +180,8 @@ public class ColorsActivity extends AppCompatActivity {
             // Regardless of whether or not we were granted audio focus, abandon it. This also
             // unregisters the AudioFocusChangeListener so we don't get anymore callbacks.
             mAudioManager.abandonAudioFocus(mOnAudioFocusChangeListener);
+
         }
     }
+
 }

@@ -10,15 +10,15 @@
     <color name="tan_background">#FFF7DA</color>
 
     <!-- Background color for the numbers category -->
-    <color name="category_numbers">#FD8E09</color>
+    <color name="category_numbers">#ba68c8</color>
 
     <!-- Background color for the family members category -->
-    <color name="category_names">#379237</color>
+    <color name="category_names">#827717</color>
 
     <!-- Background color for the colors category -->
-    <color name="category_colors">#8800A0</color>
+    <color name="category_colors">#ff5722</color>
 
     <!-- Background color for the phrases category -->
-    <color name="category_phrases">#16AFCA</color>
+    <color name="category_phrases">#1a237e</color>
 
 </resources>

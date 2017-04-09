@@ -6,31 +6,31 @@ package com.usassociates.android.learnnammakannada;
 
 public class Word {
 
-    private String mkannadaTranslation;
-    private String mdefaultTransalation;
+    private String mKannadaTranslation;
+    private String mDefaultTransalation;
     private int mImageResourceId;
     //Audio resource id to be loaded
     private int mAudioResorceId;
 
     public Word(String defaultTransalation, String kannadaTransalation,int audioResorceId){
-        this.mkannadaTranslation = kannadaTransalation;
-        this.mdefaultTransalation = defaultTransalation;
+        this.mKannadaTranslation = kannadaTransalation;
+        this.mDefaultTransalation = defaultTransalation;
         this.mAudioResorceId = audioResorceId;
     }
 
     public Word(String defaultTransalation, String kannadaTransalation, int imageResourceId, int audioResorceId){
-        this.mkannadaTranslation = kannadaTransalation;
-        this.mdefaultTransalation = defaultTransalation;
+        this.mKannadaTranslation = kannadaTransalation;
+        this.mDefaultTransalation = defaultTransalation;
         this.mImageResourceId = imageResourceId;
         this.mAudioResorceId = audioResorceId;
     }
 
     public String  getKannadaTransalation(){
-        return mkannadaTranslation;
+        return mKannadaTranslation;
     }
 
     public String getDefaultTranslation(){
-        return mdefaultTransalation;
+        return mDefaultTransalation;
     }
 
     public int getImageResourceId(){
@@ -39,6 +39,17 @@ public class Word {
 
     public int getAudioResorceId(){
         return mAudioResorceId;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Word{" +
+                "mDefaulTranslation='" + mDefaultTransalation + '\'' +
+                ", mKannadaTranslation='" + mKannadaTranslation + '\'' +
+                ", mImageResourceId=" + mImageResourceId +
+                ", mAudioResorceId=" + mAudioResorceId +
+                '}';
     }
 
 }
