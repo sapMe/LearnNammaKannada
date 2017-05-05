@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Learn Namma Kannada</string>
+    <string name="app_name">Learn Kannada</string>
     <!-- Category name for phrases [CHAR LIMIT=20] -->
     <string name="category_phrases">Phrases</string>
 
@@ -11,6 +11,18 @@
 
     <!-- Category name for the vocabulary words for family members [CHAR LIMIT=20] -->
     <string name="category_names">Names</string>
+
+    <!-- Category name for the vocabulary words for animals [CHAR LIMIT=20] -->
+    <string name="category_animals">Animals</string>
+
+    <!-- Category name for the vocabulary words for Fruits [CHAR LIMIT=20] -->
+    <string name="category_fruits">Fruits</string>
+
+    <!-- Category name for the vocabulary words for Vegitables [CHAR LIMIT=20] -->
+    <string name="category_vegetables">Vegetables</string>
+
+    <!-- Category name for the vocabulary words for animals [CHAR LIMIT=20] -->
+    <string name="category_days">Days</string>
 
     <string name="numbers_List">Numbers</string>
 
