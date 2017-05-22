@@ -97,9 +97,27 @@ public class PhrasesFragment extends Fragment {
         words.add(new Word("I’m coming.", "Baruttini.",R.raw.coming));
         words.add(new Word("Let’s go.", "Hogona",R.raw.lets_go));
         words.add(new Word("Come here.", "Illi banni",R.raw.come_here));
-        words.add(new Word("Come.", "Banni",R.raw.come));
-        words.add(new Word("Go.", "Hogi",R.raw.go));
-        words.add(new Word("Who are you?.", "Neevu yaaru?",R.raw.who_r_u));
+        words.add(new Word("Who are you?", "Neevu yaaru?",R.raw.who_r_u));
+        words.add(new Word("Can you help me?", "Nanage sahaaya maaduvira?",R.raw.canyouhelpme));
+        words.add(new Word("Come tomorrow.", "Naale banni.",R.raw.cometomorrow));
+        words.add(new Word("Give the change.", "Change kodi",R.raw.givethechange));
+        words.add(new Word("How did you come?", "Neenu hege bande?",R.raw.howdidyoucome));
+        words.add(new Word("How much distance to go?", "Eshtu doora hoga beku?",R.raw.howmuchdistancetogo));
+        words.add(new Word("How much do you charge?", "Neevu eshtu duddu thagothira?",R.raw.howmuchdoyoucharge));
+        words.add(new Word("How much is this?", "Idu eshtu?",R.raw.howmuchisthis));
+        words.add(new Word("How was the journey?", "Prayaana hegittu?",R.raw.howwasthejourney));
+        words.add(new Word("I don't know", "Nanage gothilla.",R.raw.idontknow));
+        words.add(new Word("I don't want it.", "Idu nanage beda.",R.raw.idontwantit));
+        words.add(new Word("I want it.", "Idu nanage beku.",R.raw.iwantit));
+        words.add(new Word("What are you doing?", "Neevu enu maaduthiddira?",R.raw.whatareyoudoing));
+        words.add(new Word("What can I do?", "Nannu enu maada bahudu?",R.raw.whatcanido));
+        words.add(new Word("What is the cost of this?", "Idara bele eshtu?",R.raw.whatisthecostofthis));
+        words.add(new Word("What should I do?", "Naanu enu maada beku?",R.raw.whatshouldido));
+        words.add(new Word("What will you do?", "Neenu enu maaduthiya?",R.raw.whatwillyoudo));
+        words.add(new Word("Where did you come from?", "Neenu ellinda bande",R.raw.wheredidyoucomefrom));
+        words.add(new Word("Where is your house.", "Nimma mane elli ide?",R.raw.whereisyourhouse));
+        words.add(new Word("Will you come with me?", "Neenu nanna jothe baruveya?",R.raw.willyoucomewithme));
+
 
 
         // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The

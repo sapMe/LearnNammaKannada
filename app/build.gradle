@@ -4,11 +4,11 @@ android {
     compileSdkVersion 23
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "sapsapps.learnKannada"
+        applicationId "com.usassociates.android.learnnammakannada"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 5
-        versionName "5.0"
+        versionCode 6
+        versionName "5.01"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

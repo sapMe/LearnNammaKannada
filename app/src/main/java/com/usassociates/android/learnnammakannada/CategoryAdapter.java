@@ -37,6 +37,9 @@ import android.support.v4.app.FragmentPagerAdapter;
             return mContext.getString(R.string.category_animals);
         }
         else if(position == 6){
+            return mContext.getString(R.string.category_words);
+        }
+        else if(position == 7){
             return mContext.getString(R.string.category_phrases);
         }
         else {
@@ -64,6 +67,8 @@ import android.support.v4.app.FragmentPagerAdapter;
         }else if(position == 5){
             return new AnimalsFragment();
         }else if(position == 6){
+            return new WordsFragment();
+        }else if(position == 7){
             return new PhrasesFragment();
         }else{
             return new DaysFragment();
@@ -76,6 +81,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 
     @Override
     public int getCount() {
-        return 8;
+        return 9;
     }
 }

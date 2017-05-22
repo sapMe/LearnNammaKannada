@@ -3,6 +3,9 @@
     <!-- Category name for phrases [CHAR LIMIT=20] -->
     <string name="category_phrases">Phrases</string>
 
+    <!-- Category name for phrases [CHAR LIMIT=20] -->
+    <string name="category_words">Words</string>
+
     <!-- Category name for the vocabulary words for colors [CHAR LIMIT=20] -->
     <string name="category_colors">Colors</string>
 
@@ -31,6 +34,11 @@
     <string name="colors_List">Colors</string>
 
     <string name="phrases_List">Phrases</string>
+
+    <string name="words_List">Words</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
